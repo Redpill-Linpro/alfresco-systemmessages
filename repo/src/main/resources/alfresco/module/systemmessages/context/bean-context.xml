@@ -4,4 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
 
+  <!-- Registration of new model -->
+  <bean id="rl.ldapDictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
+    <property name="models">
+      <list>
+        <value>alfresco/module/systemmessages/context/model/systemmessages-model.xml</value>
+      </list>
+    </property>
+  </bean>
 </beans>
