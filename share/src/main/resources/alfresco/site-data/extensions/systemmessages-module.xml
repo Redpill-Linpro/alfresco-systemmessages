@@ -1,0 +1,17 @@
+<extension>
+
+
+  <modules>
+    <module>
+      <id>System Messages - Show System messages</id>
+      <auto-deploy>false</auto-deploy>
+      <version>${project.version}</version>
+
+      <configurations>
+
+        
+
+      </configurations>
+    </module>
+  </modules>
+</extension>

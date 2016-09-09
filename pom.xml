@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.redpill-linpro.alfresco</groupId>
+    <artifactId>alfresco-base</artifactId>
+    <version>1.1.1.22</version>
+  </parent>
+
+
+  <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
+  <artifactId>alfresco-systemmessages</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Alfresco System Messages</name>
+  <packaging>pom</packaging>
+
+  <properties>
+    <alfresco.groupId>org.alfresco</alfresco.groupId>
+    <alfresco.version>4.2.5.1</alfresco.version>
+    <java.source.version>1.7</java.source.version>
+    <java.target.version>1.7</java.target.version>
+  </properties>
+
+  <modules>
+    <module>repo</module>
+    <module>share</module>
+  </modules>
+
+  <developers>
+    <developer>
+      <id>erib</id>
+      <name>Erik Billerby</name>
+      <email>erik.billerby (at) redpill-linpro.com</email>
+      <organization>Redpill Linpro AB</organization>
+      <organizationUrl>http://www.redpill-linpro.com</organizationUrl>
+      <roles>
+        <role>Founder</role>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+
+  <contributors>
+    <contributor />
+  </contributors>
+
+  <organization>
+    <name>Redpill Linpro</name>
+    <url>http://www.redpill-linpro.com</url>
+  </organization>
+
+  <scm>
+    <connection>scm:git@github.com:Redpill-Linpro/alfresco-systemmessages.git</connection>
+    <developerConnection>scm:git@github.com:Redpill-Linpro/alfresco-systemmessages.git</developerConnection>
+    <url>scm:git@github.com:Redpill-Linpro/alfresco-systemmessages.git</url>
+  </scm>
+
+  <issueManagement>
+    <system>Github</system>
+    <url>https://github.com/Redpill-Linpro/alfresco-systemmessages/issues</url>
+  </issueManagement>
+
+  <repositories>
+    <repository>
+      <id>redpill-public</id>
+      <url>https://maven.redpill-linpro.com/nexus/content/groups/public</url>
+    </repository>
+  </repositories>
+
+</project>
+
+
