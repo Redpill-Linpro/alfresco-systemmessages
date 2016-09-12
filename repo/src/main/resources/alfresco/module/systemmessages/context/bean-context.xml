@@ -12,4 +12,10 @@
       </list>
     </property>
   </bean>
+  
+    <!-- Webscript to get current system messages -->
+  <bean id="webscript.org.redpill.notifications.notifications.get" class="org.redpill.alfresco.systemmessages.webscript.SystemMessagesGet" parent="webscript">
+    <property name="nodeService" ref="NodeService" />
+  </bean>
+  
 </beans>
