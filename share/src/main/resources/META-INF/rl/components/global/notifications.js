@@ -184,7 +184,6 @@ var user  = username();
 if (user) {
     
     //fire of ajax requests to fetch notifications
-    //we have two sources - user defined in data lists or invites
     var system  = new SystemNotifications();
 }
 
