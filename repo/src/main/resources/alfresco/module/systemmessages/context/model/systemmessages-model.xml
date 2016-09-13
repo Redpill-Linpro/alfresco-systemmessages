@@ -17,7 +17,8 @@
   <namespaces>
     <namespace uri="http://www.redpill-linpro.com/model/sm/1.0" prefix="rlsm" />
   </namespaces>
-
+  
+<types>
   <!-- Data List - System maintenance messages -->
   <type name="rlsm:systemMessage">
     <title>System messages</title>
@@ -51,4 +52,6 @@
       </property>
     </properties>
   </type>
+ </types>
+ 
 </model>

@@ -169,6 +169,9 @@ Bubbling.on("notifications.notify",function(layer,payload){
  * 
  */
 
+/*
+ * Removed block to show message on all pages.
+ * 
 //helper functions
 //gets username from url, null if we're not on a site or we're not on the dashboard
 var username = function() {
@@ -186,6 +189,8 @@ if (user) {
     //fire of ajax requests to fetch notifications
     var system  = new SystemNotifications();
 }
-
+*/
+// Moved outside if-statement to show message on all pages.
+var system  = new SystemNotifications();
 
 })();

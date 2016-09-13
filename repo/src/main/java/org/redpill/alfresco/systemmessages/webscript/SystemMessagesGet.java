@@ -20,6 +20,5 @@ public class SystemMessagesGet extends DeclarativeWebScript {
     // TODO Auto-generated method stub 
     return super.executeImpl(req, status, cache);
   }
-   
 }
  

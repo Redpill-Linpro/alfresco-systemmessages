@@ -54,7 +54,7 @@
     float: right;
     width: 16px;
     height: 16px;
-    background-image: url("../images/remove-icon-16.png");
+    background-image: url("/share/res/components/images/remove-icon-16.png");
     background-position: center center;
     background-repeat: no-repeat;
     cursor: pointer;
