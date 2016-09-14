@@ -191,6 +191,10 @@ if (user) {
 }
 */
 // Moved outside if-statement to show message on all pages.
-var system  = new SystemNotifications();
+var currentUser = Alfresco.constants.USERNAME.toLowerCase();
+if (currentUser !== "guest"){
+	var system  = new SystemNotifications();
+}
+
 
 })();
