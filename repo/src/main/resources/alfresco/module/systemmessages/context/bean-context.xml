@@ -16,6 +16,32 @@
    <!-- Webscript to get current system messages  -->
   <bean id="webscript.org.redpill.notifications.notifications.get" class="org.redpill.alfresco.systemmessages.webscript.SystemMessagesGet" parent="webscript">
     <property name="nodeService" ref="NodeService" />
+    <property name="searchService" ref="searchService"/>
+    <property name="namespaceService" ref="namespaceService"/>
   </bean>
+  <bean id="webscript.org.redpill.notifications.notifications-datalist.get" class="org.redpill.alfresco.systemmessages.webscript.GetDataList" parent="webscript">
+    <property name="nodeService" ref="NodeService" />
+    <property name="searchService" ref="searchService"/>
+    <property name="namespaceService" ref="namespaceService"/>
+  </bean>
+
+
+
+  <bean id="patch.CreateDataList" class="org.redpill.alfresco.systemmessages.patch.CreateDataList" parent="basePatch">
+    <property name="id"><value>patch.CreateDataList</value></property>
+    <property name="description"><value>patch.CreateDataList.description</value></property>
+    <property name="fixesFromSchema"><value>0</value></property>
+    <property name="fixesToSchema"><value>${version.schema}</value></property>
+    <property name="targetSchema"><value>10000</value></property>
+    <property name="searchService" ref="searchService"/>
+    <property name="nodeService" ref="nodeService"/>
+    <!--<property name="force" value="true" />-->
+    <!--<property name="requiresTransaction"><value>true</value></property>-->
+    <!--<property name="applyToTenants"><value>true</value></property>-->
+    <!--<property name="contentService" ref="ContentService"/>-->
+    <!--<property name="fileFolderService" ref="FileFolderService"/>-->
+    <!--<property name="repository" ref="repositoryHelper"/>-->
+  </bean>
+
   
 </beans>

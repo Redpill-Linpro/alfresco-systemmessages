@@ -1,0 +1,7 @@
+<webscript>
+    <shortname>System messages admin panel</shortname>
+    <description>System messages admin panel</description>
+    <family>admin-console</family>
+    <url>/components/console/system-messages/admin</url>
+    <authentication>admin</authentication>
+</webscript>

@@ -9,108 +9,60 @@ var Event    = YAHOO.util.Event;
 var Cookie   = YAHOO.util.Cookie;
 var Bubbling = YAHOO.Bubbling;
 
-
-//var template = '<div id="se.vgregion.alfresco:alfresco-vgr-share:amp:3.9.0-SNAPSHOT" class="notifcation" style="margin-top: 10px; padding: 15px; margin-left: 10px; margin-right: 10px;"> <a class="theme-color-2 invite-yes" href="#" style="padding-left: 20px; font-weight: bold;">Ja tack! </a><a href="#" class="theme-color-2 invite-no" style="padding-left: 10px;">Nej inte nu. </a></div>';
-
-
-        
-
 /**
  * System messages
  * 
  */
 var SystemNotifications = function() {
-    this.read = {};
-    
-    //check cookie for already read notifications
-    var ids = this._readCookie();
-    for (var i=0; i<ids.length; i++) {
-        this.read[ids[i]] = true;
-    }
-    
-    var me = this;
     //Do an ajax request to check for messagexs
     Alfresco.util.Ajax.jsonGet({
-        url: '/share/proxy/alfresco/redpill/notifications',
+        url: '/share/proxy/alfresco/api/redpill/notifications?active=true',
         successCallback: { 
-            fn:  function (res) {
+            fn:  (function (res) {
                     if (res.json && res.json.notifications) {
                         //If the server is really fast we get a response before the DOM is ready, at least its possible theoretically
-                        Event.onDOMReady(function(){
-                            me._callback(res.json.notifications);
-                        });
+                        Event.onDOMReady((function(){
+                            this._callback(res.json.notifications);
+                        }).bind(this));
                     }
-                }
+                }).bind(this)
            }
     });
     
 };
 
 SystemNotifications.prototype._callback = function(data) {
-    var blocked = [];
     for (var i=0; i<data.length; i++) {
         var msg = data[i];
-        
         //is it read?
-        if (!this.read[msg.id]) {
-            var me    = this;
+        if (!this._readCookie(msg.id)) {
             if (msg.type !== 'High') {
-                msg.close = function(n){ me.setRemovalCookie(n.id); };
+                msg.close = (function(n){ this.setRemovalCookie(n.id,msg); }).bind(this);
             }
             Bubbling.fire('notifications.notify',msg);
-        } else {
-            blocked.push(msg.id);
         }
-        
-    }
-    
-    //do a clean of the cookie, since we theoretically could just add and add and add
-    //we just set it again, but only with blocked messages, i.e. messages we blocked
-    //but should be viewed!
-    if (blocked.length > 0) { 
-        var now = new Date();
-        Cookie.set("deletednotifications", blocked.join(','), {
-            expires: new Date(now.getFullYear(),(now.getMonth()+1) % 12,now.getDay()) //a month from now is permanent enough
-        });
-    } else {
-        Cookie.remove("deletednotifications");
     }
 };
 
 
-SystemNotifications.prototype._readCookie = function() {
-    var read = Cookie.get('deletednotifications');
-    read     = read?read.split(','):[];        
+SystemNotifications.prototype._readCookie = function(id) {
+    var read = Cookie.get('deletednotifications' + id);
     return read;
 };
 
 
-SystemNotifications.prototype.setRemovalCookie = function(id) {
-    var read = this._readCookie();   
-    read.unshift(id);
-    var now = new Date();
-    Cookie.set("deletednotifications", read.join(','), {
-        expires: new Date(now.getFullYear(),(now.getMonth()+1) % 12,now.getDay()) //a month from now is permanent enough
+SystemNotifications.prototype.setRemovalCookie = function(id,msg) {
+    var read = this._readCookie(id);
+    var expiryDate = new Date();
+    expiryDate.addDays(1);
+    if(msg.endTime)
+    {
+       expiryDate = new Date(msg.endTime);
+    }
+    Cookie.set("deletednotifications" + id, "read", {
+        expires:  expiryDate
     });
 };
-
-
-//Notifications via Bubbling events
-//API
-/** 
-  "notifications.notify", 
- {
-   id: String,   //(optional), will be used as the id of the surrounding div
-   title: "System maintenance", 
-   text:   "The system is going down for maintenance at 14.00 to 15.00",
-   type:  "warning",   //(optional) defaults to info and is used as a class on the surrounding div of the notification
-   close: Boolean|Function, //(optional) if set to true a close button will be added, if a function the button will be added and function used as callback
- }
- 
- Usage:
-    YAHOO.Bubbling.fire('notifications.notify',{title:"System is going down!", text: "System is going down for maintenance",type:"warning"});
- 
-**/
 
 
 var template = '<div id="{id}" class="notification {type}">{close}<span class="title">{title}</span>{text}</div>';
@@ -169,28 +121,6 @@ Bubbling.on("notifications.notify",function(layer,payload){
  * 
  */
 
-/*
- * Removed block to show message on all pages.
- * 
-//helper functions
-//gets username from url, null if we're not on a site or we're not on the dashboard
-var username = function() {
-    var matches = window.location.pathname.match(/.*\/page\/user\/(.*)\/dashboard/);
-     if ( matches !== null && matches.length > 1) {
-        return matches[1];
-     }
-     return null;
-};
-
-//first check if we're on the dashboard. Don't do anything otherwise
-var user  = username();
-if (user) {
-    
-    //fire of ajax requests to fetch notifications
-    var system  = new SystemNotifications();
-}
-*/
-// Moved outside if-statement to show message on all pages.
 var currentUser = Alfresco.constants.USERNAME.toLowerCase();
 if (currentUser !== "guest"){
 	var system  = new SystemNotifications();

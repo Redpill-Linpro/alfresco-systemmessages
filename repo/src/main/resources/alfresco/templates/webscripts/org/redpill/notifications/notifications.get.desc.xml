@@ -1,7 +1,7 @@
 <webscript>
   <shortname>Get a list of current system notifications</shortname>
   <description></description>
-  <url>/redpill/notifications</url>
+  <url>/api/redpill/notifications</url>
   <format default="json">argument</format>
   <authentication>user</authentication>
   <transaction allow="readonly">required</transaction>

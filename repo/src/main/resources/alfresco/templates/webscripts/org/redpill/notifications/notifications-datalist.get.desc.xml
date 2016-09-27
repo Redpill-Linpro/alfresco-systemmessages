@@ -1,0 +1,9 @@
+<webscript>
+    <shortname>Get notifications datalist</shortname>
+    <description></description>
+    <url>/api/redpill/notifications/datalist</url>
+    <format default="json">argument</format>
+    <authentication>user</authentication>
+    <transaction allow="readonly">required</transaction>
+    <family>Redpill Linpro</family>
+</webscript>
