@@ -43,6 +43,18 @@
       </roles>
       <timezone>+1</timezone>
     </developer>
+    <developer>
+      <id>magp3</id>
+      <name>Magnus Pedersen</name>
+      <email>magnus.pedersen (at) redpill-linpro.com</email>
+      <organization>Redpill Linpro AB</organization>
+      <organizationUrl>http://www.redpill-linpro.com</organizationUrl>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
   </developers>
 
   <contributors>
