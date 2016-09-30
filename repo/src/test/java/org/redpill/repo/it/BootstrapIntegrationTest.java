@@ -1,5 +1,9 @@
 package org.redpill.repo.it;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.List;
+
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.cmr.repository.NodeService;
 import org.alfresco.service.cmr.repository.StoreRef;
@@ -7,16 +11,11 @@ import org.alfresco.service.cmr.search.SearchService;
 import org.alfresco.service.namespace.NamespaceService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.redpill.alfresco.systemmessages.patch.CreateDataListPatch;
+import org.redpill.alfresco.systemmessages.webscript.GetDataList;
 import org.redpill.alfresco.test.AbstractRepoIntegrationTest;
 import org.redpill.alfresco.test.SpringInstanceTestClassRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.test.context.ContextConfiguration;
-
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Created by magnus on 2016-09-26.
@@ -38,7 +37,7 @@ public class BootstrapIntegrationTest extends AbstractRepoIntegrationTest
     public void testCreateDataListPatch() throws Exception
     {
         List<NodeRef> result = searchService.selectNodes(nodeService.getRootNode(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE),
-                CreateDataListPatch.PATH,null,namespaceService,false);
+        		GetDataList.DATALIST_PATH + "/" + GetDataList.SYSTEM_MESSAGES_DL_NAME,null,namespaceService,false);
         assertEquals(1,result.size());
 
     }
