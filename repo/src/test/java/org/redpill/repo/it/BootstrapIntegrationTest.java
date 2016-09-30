@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import org.alfresco.repo.security.authentication.AuthenticationUtil;
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.cmr.repository.NodeService;
 import org.alfresco.service.cmr.repository.StoreRef;
@@ -31,11 +32,14 @@ public class BootstrapIntegrationTest extends AbstractRepoIntegrationTest
     @Qualifier("NodeService")
     NodeService nodeService;
     @Autowired
-    @Qualifier("NameSpaceService")
+    @Qualifier("NamespaceService")
     NamespaceService namespaceService;
     @Test
     public void testCreateDataListPatch() throws Exception
     {
+        // Setup authentication
+        _authenticationComponent.setCurrentUser(AuthenticationUtil.getAdminUserName());
+
         List<NodeRef> result = searchService.selectNodes(nodeService.getRootNode(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE),
         		GetDataList.DATALIST_PATH + "/" + GetDataList.SYSTEM_MESSAGES_DL_NAME,null,namespaceService,false);
         assertEquals(1,result.size());
