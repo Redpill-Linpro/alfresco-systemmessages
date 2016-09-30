@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view:view xmlns:view="http://www.alfresco.org/view/repository/1.0" xmlns:st="http://www.alfresco.org/model/site/1.0" xmlns:dl="http://www.alfresco.org/model/datalist/1.0" xmlns:d="http://www.alfresco.org/model/dictionary/1.0" xmlns:cm="http://www.alfresco.org/model/content/1.0" xmlns:sys="http://www.alfresco.org/model/system/1.0" xmlns="">
+ <dl:dataList view:childName="cm:dataLists">
+  <view:aspects>
+    <cm:auditable></cm:auditable>
+    <cm:ownable></cm:ownable>
+    <cm:countable></cm:countable>
+    <cm:tagscope></cm:tagscope>
+    <sys:referenceable></sys:referenceable>
+    <sys:localized></sys:localized>
+  </view:aspects>
+  <view:properties>
+    <cm:name>dataLists</cm:name>
+    <st:componentId>dataLists</st:componentId>
+  </view:properties>
+  <view:associations>
+  	 <cm:contains>
+        <dl:dataList view:childName="cm:system-messages-datalist">
+          <view:aspects>
+            <cm:auditable></cm:auditable>
+            <cm:countable></cm:countable>
+            <sys:referenceable></sys:referenceable>
+            <cm:titled></cm:titled>
+            <sys:localized></sys:localized>
+          </view:aspects>
+          <view:acl></view:acl>
+          <view:properties>
+            <cm:name>system-messages-datalist</cm:name>
+            <cm:title>
+              <view:mlvalue view:locale="en">System Messages</view:mlvalue>
+            </cm:title>
+            <cm:description>
+              <view:mlvalue view:locale="en">Datalist containing system messages</view:mlvalue>
+            </cm:description>
+            <dl:dataListItemType>{http://www.redpill-linpro.com/model/sm/1.0}systemMessage</dl:dataListItemType>
+          </view:properties>
+        </dl:dataList>
+     </cm:contains>
+  </view:associations>
+ </dl:dataList>
+</view:view>
+        

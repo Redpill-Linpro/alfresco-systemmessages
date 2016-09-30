@@ -2,7 +2,10 @@ package org.redpill.alfresco.systemmessages.webscript;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.cmr.repository.NodeService;
@@ -12,7 +15,6 @@ import org.alfresco.service.namespace.NamespaceService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.redpill.alfresco.systemmessages.model.SystemMessagesModel;
-import org.redpill.alfresco.systemmessages.patch.CreateDataList;
 import org.springframework.extensions.webscripts.Cache;
 import org.springframework.extensions.webscripts.DeclarativeWebScript;
 import org.springframework.extensions.webscripts.Status;
@@ -48,7 +50,7 @@ public class SystemMessagesGet extends DeclarativeWebScript
         HashMap<String, Object> result = new HashMap<>();
         JSONObject jsonObject = new JSONObject();
         List<NodeRef> nodeRefList = searchService.selectNodes(nodeService.getRootNode(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE),
-                CreateDataList.path + "/*", null, namespaceService, false);
+        		GetDataList.DATALIST_PATH + "/" + GetDataList.SYSTEM_MESSAGES_DL_NAME + "/*", null, namespaceService, false);
         JSONArray notifications = new JSONArray();
         for(NodeRef nodeRef:nodeRefList)
         {

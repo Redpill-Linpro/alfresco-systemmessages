@@ -5,13 +5,14 @@
 	
 
   <!-- Registration of new model -->
-  <bean id="rl.ldapDictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
+  <bean id="rl.systemMessagesDictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
     <property name="models">
       <list>
         <value>alfresco/module/systemmessages/context/model/systemmessages-model.xml</value>
       </list>
     </property>
   </bean>
+
   
    <!-- Webscript to get current system messages  -->
   <bean id="webscript.org.redpill.notifications.notifications.get" class="org.redpill.alfresco.systemmessages.webscript.SystemMessagesGet" parent="webscript">
@@ -25,9 +26,42 @@
     <property name="namespaceService" ref="namespaceService"/>
   </bean>
 
+  <bean id="patch.systemMessagesDatalist" class="org.alfresco.repo.admin.patch.impl.GenericBootstrapPatch" parent="basePatch">
+    <property name="id">
+      <value>patch.systemMessagesDatalist</value>
+    </property>
+    <property name="description">
+      <value>patch.systemMessagesDatalist.description</value>
+    </property>
+    <property name="fixesFromSchema">
+      <value>0</value>
+    </property>
+    <property name="fixesToSchema">
+      <value>${version.schema}</value>
+    </property>
+    <property name="targetSchema">
+      <value>10000</value>
+    </property>
+    <property name="force" value="true" />
 
+    <property name="importerBootstrap">
+      <ref bean="spacesBootstrap" />
+    </property>
+    <property name="checkPath">
+      <value>/${spaces.company_home.childname}/${spaces.dictionary.childname}/cm:dataLists</value>
+    </property>
+    <property name="bootstrapView">
+      <props>
+        <prop key="encoding">UTF-8</prop>
+        <prop key="path">/${spaces.company_home.childname}/${spaces.dictionary.childname}</prop>
+        <prop key="location">alfresco/module/systemmessages/context/bootstrap/system-messages-list.xml</prop>
+        <prop key="messages">alfresco/module/systemmessages/context/messages/sm-patch-service</prop>
+      </props>
+    </property>
+  </bean>
 
-  <bean id="patch.CreateDataList" class="org.redpill.alfresco.systemmessages.patch.CreateDataList" parent="basePatch">
+<!-- 
+  <bean id="patch.CreateDataList" class="org.redpill.alfresco.systemmessages.patch.CreateDataListPatch" parent="basePatch">
     <property name="id"><value>patch.CreateDataList</value></property>
     <property name="description"><value>patch.CreateDataList.description</value></property>
     <property name="fixesFromSchema"><value>0</value></property>
@@ -35,13 +69,8 @@
     <property name="targetSchema"><value>10000</value></property>
     <property name="searchService" ref="searchService"/>
     <property name="nodeService" ref="nodeService"/>
-    <!--<property name="force" value="true" />-->
-    <!--<property name="requiresTransaction"><value>true</value></property>-->
-    <!--<property name="applyToTenants"><value>true</value></property>-->
-    <!--<property name="contentService" ref="ContentService"/>-->
-    <!--<property name="fileFolderService" ref="FileFolderService"/>-->
-    <!--<property name="repository" ref="repositoryHelper"/>-->
-  </bean>
 
+  </bean>
+ -->
   
 </beans>

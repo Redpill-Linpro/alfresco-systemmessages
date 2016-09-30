@@ -7,7 +7,7 @@ import org.alfresco.service.cmr.search.SearchService;
 import org.alfresco.service.namespace.NamespaceService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.redpill.alfresco.systemmessages.patch.CreateDataList;
+import org.redpill.alfresco.systemmessages.patch.CreateDataListPatch;
 import org.redpill.alfresco.test.AbstractRepoIntegrationTest;
 import org.redpill.alfresco.test.SpringInstanceTestClassRunner;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class BootstrapIntegrationTest extends AbstractRepoIntegrationTest
     public void testCreateDataListPatch() throws Exception
     {
         List<NodeRef> result = searchService.selectNodes(nodeService.getRootNode(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE),
-                CreateDataList.path,null,namespaceService,false);
+                CreateDataListPatch.PATH,null,namespaceService,false);
         assertEquals(1,result.size());
 
     }

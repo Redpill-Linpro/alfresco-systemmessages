@@ -11,7 +11,6 @@ import org.alfresco.service.cmr.repository.StoreRef;
 import org.alfresco.service.cmr.search.SearchService;
 import org.alfresco.service.namespace.NamespaceService;
 import org.json.simple.JSONObject;
-import org.redpill.alfresco.systemmessages.patch.CreateDataList;
 import org.springframework.extensions.webscripts.Cache;
 import org.springframework.extensions.webscripts.DeclarativeWebScript;
 import org.springframework.extensions.webscripts.Status;
@@ -21,11 +20,16 @@ public class GetDataList extends DeclarativeWebScript {
     private NodeService nodeService;
     private SearchService searchService;
     private NamespaceService namespaceService;
+    
+    
+    public final static String SYSTEM_MESSAGES_DL_NAME = "cm:system-messages-datalist";
+    public final static String DATALIST_PATH= "/app:company_home/app:dictionary/cm:dataLists";
+    
 
     @Override
     protected Map<String, Object> executeImpl(WebScriptRequest req, Status status, Cache cache) {
         List<NodeRef> dataList = searchService.selectNodes(nodeService.getRootNode(StoreRef.STORE_REF_WORKSPACE_SPACESSTORE),
-                CreateDataList.path,null,namespaceService,false);
+                DATALIST_PATH + "/" + SYSTEM_MESSAGES_DL_NAME,null,namespaceService,false);
         HashMap<String,Object> result = new HashMap<>();
         JSONObject jsonObject = new JSONObject();
         if(!dataList.isEmpty())
