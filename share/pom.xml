@@ -5,12 +5,20 @@
   <parent>
     <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
     <artifactId>alfresco-systemmessages</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
   </parent>
   <artifactId>alfresco-systemmessages-share</artifactId>
   <packaging>jar</packaging>
   <name>Alfresco System Messages- Share</name>
   <description>Alfresco System Messages - Share</description>
+
+  <properties>
+    <module.id>systemmessages</module.id>
+    <alfresco.client.war>share</alfresco.client.war>
+    <tomcat.home>${tomcat.share.home}</tomcat.home>
+    <tomcat.port>${tomcat.share.port}</tomcat.port>
+    <env>local</env>
+  </properties>
 
   <dependencies>
     <dependency>

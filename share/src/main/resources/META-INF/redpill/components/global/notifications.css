@@ -1,0 +1,62 @@
+#notifications .notification {
+        margin-top: 10px; 
+        padding: 15px 35px;
+        margin-left: 10px; 
+        margin-right: 10px; 
+        
+        /* default to yellow, ie. normal */
+        border: 1px solid #DDD6A0;
+        background-color: #FFFBDD;
+}
+
+#notifications .title {
+    color: #038603;
+    padding-right: 0.8em;
+    font-weight: bold;
+}
+
+/* types of notifocation */
+#notifications .high,#notifications .warning {
+    color: white;
+    border: 1px solid #cf1956;
+    background-color: rgb(185, 74, 72);
+}
+
+#notifications .high .title,#notifications .warning .title {
+    color: white;    
+}
+
+#notifications .normal,#notifications .info {
+    border: 1px solid #DDD6A0;
+    background-color: #FFFBDD;
+}
+
+#notifications .low {
+    border: 1px solid #BABABA;
+    background-color: #F9FCFD;
+}
+
+#notifications .low .title {
+    color: #6CA5CE;
+}
+
+/* invites */ 
+#notifications .invite-yes {
+    color: #038603;
+    padding-left: 20px; 
+    font-weight: bold;
+}   
+#notifications .invite-no {
+        padding-left: 10px;
+}
+
+#notifications .notification .close {
+    float: right;
+    width: 16px;
+    height: 16px;
+    background-image: url("/share/res/components/images/remove-icon-16.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    
+}

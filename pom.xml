@@ -13,7 +13,7 @@
 
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
   <artifactId>alfresco-systemmessages</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>Alfresco System Messages</name>
   <packaging>pom</packaging>
 
@@ -38,6 +38,18 @@
       <organizationUrl>http://www.redpill-linpro.com</organizationUrl>
       <roles>
         <role>Founder</role>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>magp3</id>
+      <name>Magnus Pedersen</name>
+      <email>magnus.pedersen (at) redpill-linpro.com</email>
+      <organization>Redpill Linpro AB</organization>
+      <organizationUrl>http://www.redpill-linpro.com</organizationUrl>
+      <roles>
         <role>Architect</role>
         <role>Developer</role>
       </roles>
