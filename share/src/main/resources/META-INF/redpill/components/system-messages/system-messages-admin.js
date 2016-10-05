@@ -54,6 +54,19 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
             "</div>";
         Alfresco.logger.debug("END actionFormatter");
     },
+    timeFormatter: function (elCell, oRecord, oColumn, oData) {
+        var timeISODateTime = oData;
+        if (timeISODateTime !== null)
+        {
+           var time = Alfresco.util.fromISO8601(timeISODateTime);
+           elCell.innerHTML = Alfresco.util.formatDate(time);
+        }
+        else
+        {
+           elCell.innerHTML = this.msg("label.none");
+        }
+    },
+    
     setupDataTable: function () {
         Alfresco.logger.debug("setupDataTable", arguments);
         var columnDefinitions = [
@@ -71,11 +84,13 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
                 key: "startTime",
                 label: this.msg("title.startTime"),
                 sortable: false,
+                formatter: this.timeFormatter.bind(this)
             },
            {
                 key: "endTime",
                 label: this.msg("title.endTime"),
                 sortable: false,
+                formatter: this.timeFormatter.bind(this)
             },
             {
                 key: "type",
@@ -302,5 +317,5 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
                  scope: this
               }
            }).show();
-      },
+      }
 });

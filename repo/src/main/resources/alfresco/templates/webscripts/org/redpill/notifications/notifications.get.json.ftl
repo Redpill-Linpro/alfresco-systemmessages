@@ -1,4 +1,4 @@
-<#macro dateFormat date>${date?string("yyyy-MM-dd'T'HH:mmZ")}</#macro>
+<#macro dateFormat date=""><#if date?is_date>${xmldate(date)}</#if></#macro>
 <#escape x as jsonUtils.encodeJSONString(x)>
 {
 	"notifications":
