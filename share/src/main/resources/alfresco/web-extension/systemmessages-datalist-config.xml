@@ -1,5 +1,4 @@
 <alfresco-config>
-  <!-- dl:eventAgenda type create form config -->
   <config evaluator="model-type" condition="rlsm:systemMessage">
     <forms>
       <form>
@@ -16,7 +15,6 @@
     </forms>
   </config>
 
-  <!-- dl:eventAgenda type edit form config -->
   <config evaluator="node-type" condition="rlsm:systemMessage">
     <forms>
       <form>
