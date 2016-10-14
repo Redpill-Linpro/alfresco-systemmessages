@@ -10,6 +10,8 @@ This project contains some tools for displaying system wide messages to users. E
 
 ![Add a message](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/admin-console-sm.png)
 
+Depending on priority different colours will be used for the message.
+
 ![How its presented](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/all-pages-sm.png)
 
 Structure
