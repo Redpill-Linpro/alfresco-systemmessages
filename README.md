@@ -61,3 +61,4 @@ Authors
 -------
 
 Erik Billerby - Redpill Linpro AB
+Magnus Pedersen - Redpill Linpro AB
