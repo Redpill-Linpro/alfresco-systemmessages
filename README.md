@@ -8,7 +8,9 @@ Description
 This project contains some tools for displaying system wide messages to users. Example usage when system is going down for maintenance
 
 
-[[https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/admin-console-sm.png]]
+![Add a message](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/admin-console-sm.png)
+
+![How its presented](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/all-pages-sm.png)
 
 Structure
 ------------
