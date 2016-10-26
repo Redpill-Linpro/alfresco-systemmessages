@@ -29,6 +29,10 @@
     <property name="systemMessagesService" ref="rl.systemMessageService" />
   </bean>
 
+  <bean id="webscript.org.redpill.notifications.node.delete" class="org.redpill.alfresco.systemmessages.webscript.DeleteNode" parent="webscript">
+    <property name="nodeService" ref="NodeService" />
+  </bean>
+
 
   
   <bean id="patch.systemMessagesDatalist" class="org.alfresco.repo.admin.patch.impl.GenericBootstrapPatch" parent="basePatch">
