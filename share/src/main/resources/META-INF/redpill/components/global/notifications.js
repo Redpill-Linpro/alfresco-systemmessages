@@ -54,7 +54,8 @@ SystemNotifications.prototype._readCookie = function(id) {
 SystemNotifications.prototype.setRemovalCookie = function(id,msg) {
     var read = this._readCookie(id);
     var expiryDate = new Date();
-    expiryDate.addDays(1);
+    // Expires in one day or at the same time as the message is no longer active.
+    expiryDate.setTime( expiryDate.getTime() + 1 * 86400000 );
     if(msg.endTime)
     {
        expiryDate = new Date(msg.endTime);
