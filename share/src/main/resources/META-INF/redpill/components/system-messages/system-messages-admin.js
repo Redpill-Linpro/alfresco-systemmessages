@@ -158,7 +158,7 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
        var parsedNodeRef = Alfresco.util.NodeRef(record.getData().nodeRef);
        var url = YAHOO.lang.substitute(
                Alfresco.constants.PROXY_URI +
-               "api/node/{storeType}/{storeId}/{id}",
+               "api/redpill/delete/{storeType}/{storeId}/{id}",
            parsedNodeRef
        );
        if(confirm(this.msg("message.delete.confirm")))
