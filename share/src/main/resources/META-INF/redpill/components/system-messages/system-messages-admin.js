@@ -83,13 +83,13 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
             {
                 key: "startTime",
                 label: this.msg("title.startTime"),
-                sortable: false,
+                sortable: true,
                 formatter: this.timeFormatter.bind(this)
             },
            {
                 key: "endTime",
                 label: this.msg("title.endTime"),
-                sortable: false,
+                sortable: true,
                 formatter: this.timeFormatter.bind(this)
             },
             {
@@ -161,7 +161,7 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
                "api/node/{storeType}/{storeId}/{id}",
            parsedNodeRef
        );
-       if(confirm("Are you sure you want to delete this message?"))
+       if(confirm(this.msg("message.delete.confirm")))
        {
           Alfresco.util.Ajax.jsonDelete({
                url: url,
