@@ -27,7 +27,7 @@ Repository dependency:
 ```xml
 <dependency>
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
-  <artifactId>alfresco-systemmessages</artifactId>
+  <artifactId>alfresco-systemmessages-repo</artifactId>
   <version>1.0.0</version>
 </dependency>
 ```
@@ -36,7 +36,7 @@ Share dependency:
 ```xml
 <dependency>
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
-  <artifactId>alfresco-systemmessages</artifactId>    
+  <artifactId>alfresco-systemmessages-share</artifactId>    
   <version>1.0.0</version>
 </dependency>
 ```
