@@ -1,4 +1,4 @@
-package org.redpill.alfresco.systemmessages.model;
+package org.redpill.alfresco.repo.systemmessages.model;
 import org.alfresco.service.namespace.QName;
 public interface SystemMessagesModel
 {

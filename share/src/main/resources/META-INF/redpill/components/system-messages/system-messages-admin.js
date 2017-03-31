@@ -54,6 +54,19 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
             "</div>";
         Alfresco.logger.debug("END actionFormatter");
     },
+    timeFormatter: function (elCell, oRecord, oColumn, oData) {
+        var timeISODateTime = oData;
+        if (timeISODateTime !== null)
+        {
+           var time = Alfresco.util.fromISO8601(timeISODateTime);
+           elCell.innerHTML = Alfresco.util.formatDate(time);
+        }
+        else
+        {
+           elCell.innerHTML = this.msg("label.none");
+        }
+    },
+    
     setupDataTable: function () {
         Alfresco.logger.debug("setupDataTable", arguments);
         var columnDefinitions = [
@@ -70,12 +83,14 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
             {
                 key: "startTime",
                 label: this.msg("title.startTime"),
-                sortable: false,
+                sortable: true,
+                formatter: this.timeFormatter.bind(this)
             },
            {
                 key: "endTime",
                 label: this.msg("title.endTime"),
-                sortable: false,
+                sortable: true,
+                formatter: this.timeFormatter.bind(this)
             },
             {
                 key: "type",
@@ -143,10 +158,10 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
        var parsedNodeRef = Alfresco.util.NodeRef(record.getData().nodeRef);
        var url = YAHOO.lang.substitute(
                Alfresco.constants.PROXY_URI +
-               "api/node/{storeType}/{storeId}/{id}",
+               "api/redpill/delete/{storeType}/{storeId}/{id}",
            parsedNodeRef
        );
-       if(confirm("Are you sure you want to delete this message?"))
+       if(confirm(this.msg("message.delete.confirm")))
        {
           Alfresco.util.Ajax.jsonDelete({
                url: url,
@@ -302,5 +317,5 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
                  scope: this
               }
            }).show();
-      },
+      }
 });

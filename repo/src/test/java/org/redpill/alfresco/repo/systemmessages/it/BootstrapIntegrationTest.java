@@ -1,4 +1,4 @@
-package org.redpill.repo.it;
+package org.redpill.alfresco.repo.systemmessages.it;
 
 import static org.junit.Assert.assertEquals;
 
@@ -12,7 +12,7 @@ import org.alfresco.service.cmr.search.SearchService;
 import org.alfresco.service.namespace.NamespaceService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.redpill.alfresco.systemmessages.webscript.GetDataList;
+import org.redpill.alfresco.repo.systemmessages.webscript.GetDataList;
 import org.redpill.alfresco.test.AbstractRepoIntegrationTest;
 import org.redpill.alfresco.test.SpringInstanceTestClassRunner;
 import org.springframework.beans.factory.annotation.Autowired;

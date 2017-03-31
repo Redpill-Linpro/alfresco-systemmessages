@@ -23,12 +23,14 @@ Building & Installation
 ------------
 The build produces several jar files. Attach them to your own maven project using dependencies or put them under tomcat/shared/lib.
 
+SDK 1 and SDK 2
+
 Repository dependency:
 ```xml
 <dependency>
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
   <artifactId>alfresco-systemmessages-repo</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
@@ -37,8 +39,28 @@ Share dependency:
 <dependency>
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
   <artifactId>alfresco-systemmessages-share</artifactId>    
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
+```
+
+SDK 3
+
+Platform/Repository module (parent pom):
+```xml
+<moduleDependency>
+	<groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
+	<artifactId>alfresco-systemmessages-repo</artifactId>
+	<version>1.1.0</version>
+</moduleDependency>
+```
+
+Share module (parent pom): 
+```xml
+<moduleDependency>
+	<groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
+	<artifactId>alfresco-systemmessages-share</artifactId>
+	<version>1.1.0</version>
+</moduleDependency>
 ```
 
 Maven repository:
@@ -61,5 +83,4 @@ Authors
 -------
 
 Erik Billerby - Redpill Linpro AB
-
 Magnus Pedersen - Redpill Linpro AB
