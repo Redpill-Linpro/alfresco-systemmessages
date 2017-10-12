@@ -68,8 +68,9 @@ SystemNotifications.prototype.setRemovalCookie = function(id,msg) {
 
 var template = '<div id="{id}" class="notification {type}">{close}<span class="title">{title}</span>{text}</div>';
 var notifications_div;
+
 Bubbling.on("notifications.notify",function(layer,payload){
-    
+    notifications_div = notifications_div || Dom.get("notifications");
     //check if we have a div to put them in, otherwise create one
     if (!notifications_div) {
         notifications_div = document.createElement('div');
