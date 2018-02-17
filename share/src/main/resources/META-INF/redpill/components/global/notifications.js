@@ -75,7 +75,14 @@ Bubbling.on("notifications.notify",function(layer,payload){
     if (!notifications_div) {
         notifications_div = document.createElement('div');
         notifications_div.id = "notifications";
-        Dom.insertBefore(notifications_div,'bd');
+        var shareServiceWarningNode = Dom.get("HEADER_SHARE_SERVICES_WARNING");
+        if (shareServiceWarningNode != null){
+        	Dom.insertAfter(notifications_div, shareServiceWarningNode);
+        }else {
+        	// earlier version insert before bd instead.
+        	Don.insertBefore(notifications_div, 'bd');
+        }
+        
     }
     var n = payload[1]; //this is just how Bubbling is set up
     
@@ -123,9 +130,13 @@ Bubbling.on("notifications.notify",function(layer,payload){
  * 
  */
 
+function init() {
+	var system  = new SystemNotifications();
+ }
+
 var currentUser = Alfresco.constants.USERNAME.toLowerCase();
 if (currentUser !== "guest"){
-	var system  = new SystemNotifications();
+	YAHOO.util.Event.onContentReady('HEADER_SHARE_SERVICES_WARNING', init, this);
 }
 
 
