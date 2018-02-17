@@ -13,7 +13,7 @@
 
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
   <artifactId>alfresco-systemmessages</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0-SNAPSHOT</version>
   <name>Alfresco System Messages</name>
   <packaging>pom</packaging>
 
