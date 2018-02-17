@@ -30,7 +30,7 @@ Repository dependency:
 <dependency>
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
   <artifactId>alfresco-systemmessages-repo</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Share dependency:
 <dependency>
   <groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
   <artifactId>alfresco-systemmessages-share</artifactId>    
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -50,7 +50,7 @@ Platform/Repository module (parent pom):
 <moduleDependency>
 	<groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
 	<artifactId>alfresco-systemmessages-repo</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 </moduleDependency>
 ```
 
@@ -59,7 +59,7 @@ Share module (parent pom):
 <moduleDependency>
 	<groupId>org.redpill-linpro.alfresco.systemmessages</groupId>
 	<artifactId>alfresco-systemmessages-share</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 </moduleDependency>
 ```
 

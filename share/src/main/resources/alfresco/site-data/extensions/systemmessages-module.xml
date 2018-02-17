@@ -11,11 +11,7 @@
           <sourcePackageRoot>org.redpill.global.alfresco</sourcePackageRoot>
         </customization>
       </customizations>
-
       <configurations>
-
-        
-
       </configurations>
     </module>
   </modules>
