@@ -29,6 +29,8 @@
   <alfresco.platform.version>5.2.f</alfresco.platform.version>
   <alfresco.share.version>5.2.e</alfresco.share.version>
 
+  <sonatypeOssDistMgmtSnapshotsUrl>https://oss.sonatype.org/content/repositories/snapshots/</sonatypeOssDistMgmtSnapshotsUrl>
+
   <!-- Default is to run with a Community edition, change to 'enterprise' if using Enterprise edition -->
   <maven.alfresco.edition>community</maven.alfresco.edition>
 
@@ -42,13 +44,13 @@
   <env>local</env>
 
   <!-- Compile with Java 7, default is 5 -->
-  <maven.compiler.source>1.7</maven.compiler.source>
-  <maven.compiler.target>1.7</maven.compiler.target>
+  <maven.compiler.source>1.8</maven.compiler.source>
+  <maven.compiler.target>1.8</maven.compiler.target>
  </properties>
 
  <developers>
   <developer>
-   <id>erib</id>
+   <id>billerby</id>
    <name>Erik Billerby</name>
    <email>erik.billerby (at) redpill-linpro.com</email>
    <organization>Redpill Linpro AB</organization>
@@ -67,13 +69,12 @@
    <organization>Redpill Linpro AB</organization>
    <organizationUrl>http://www.redpill-linpro.com</organizationUrl>
    <roles>
-    <role>Architect</role>
     <role>Developer</role>
    </roles>
    <timezone>+1</timezone>
   </developer>
  </developers>
- 
+
  <contributors>
   <contributor />
  </contributors>
@@ -82,6 +83,13 @@
   <name>Redpill Linpro</name>
   <url>http://www.redpill-linpro.com</url>
  </organization>
+
+ <licenses>
+  <license>
+   <name>GNU Lesser General Public License, Version 3</name>
+   <url>https://www.gnu.org/licenses/lgpl-3.0.en.html</url>
+  </license>
+ </licenses>
 
  <scm>
   <connection>scm:git@github.com:Redpill-Linpro/alfresco-systemmessages.git</connection>
@@ -361,6 +369,13 @@
  <!-- Alfresco Maven Repositories -->
  <repositories>
   <repository>
+   <id>ossrh</id>
+   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+   <snapshots>
+    <enabled>true</enabled>
+   </snapshots>
+  </repository>
+  <repository>
    <id>alfresco-public</id>
    <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
   </repository>
@@ -379,6 +394,13 @@
   </repository>
  </repositories>
  <pluginRepositories>
+  <pluginRepository>
+   <id>ossrh</id>
+   <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+   <snapshots>
+    <enabled>true</enabled>
+   </snapshots>
+  </pluginRepository>
   <pluginRepository>
    <id>alfresco-plugin-public</id>
    <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
