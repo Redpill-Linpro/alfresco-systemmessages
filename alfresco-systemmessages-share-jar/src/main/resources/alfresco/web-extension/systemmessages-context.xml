@@ -5,7 +5,7 @@
   <bean id="systemmessages.custom.resources" class="org.springframework.extensions.surf.util.ResourceBundleBootstrapComponent">
     <property name="resourceBundles">
       <list>
-        <value>alfresco.messages.systemmessages</value>
+        <value>alfresco.web-extension.messages.systemmessages</value>
       </list>
     </property>
   </bean>

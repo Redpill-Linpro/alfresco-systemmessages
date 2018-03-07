@@ -29,7 +29,7 @@
     <property name="systemMessagesService" ref="rl.systemMessageService" />
   </bean>
 
-  <bean id="webscript.com.redpill-linpro.notifications.node.delete" class="com.redpill_linpro.alfresco.systemmessages.webscript.DeleteNode" parent="webscript">
+  <bean id="webscript.com.redpill-linpro.notifications.node.delete" class="com.redpill_linpro.alfresco.repo.systemmessages.webscript.DeleteNode" parent="webscript">
     <property name="nodeService" ref="NodeService" />
   </bean>
 
