@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="rlsm:systemMessagesModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+  <description>RL System Messages Data Model</description>
+  <author>Redpill Linpro AB</author>
+  <version>1.0.0</version>
+
+  <imports>
+    <import uri="http://www.alfresco.org/model/system/1.0" prefix="sys" />
+    <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d" />
+    <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm" />
+    <import uri="http://www.alfresco.org/model/rendition/1.0" prefix="rn" />
+    <import uri="http://www.alfresco.org/model/datalist/1.0" prefix="dl" />
+    <import uri="http://www.alfresco.org/model/site/1.0" prefix="st" />
+  </imports>
+
+  <namespaces>
+    <namespace uri="http://www.redpill-linpro.com/model/sm/1.0" prefix="rlsm" />
+  </namespaces>
+  
+<types>
+  <!-- Data List - System maintenance messages -->
+  <type name="rlsm:systemMessage">
+    <title>System messages</title>
+    <parent>dl:dataListItem</parent>
+    <properties>
+      <property name="rlsm:systemMessageTitle">
+        <title>Title</title>
+        <type>d:text</type>
+        <mandatory>true</mandatory>
+      </property>
+      <property name="rlsm:systemMessageDescription">
+        <title>Description</title>
+        <type>d:mltext</type>
+        <mandatory>true</mandatory>
+      </property>
+      <property name="rlsm:systemMessageStartTime">
+        <title>Start Time</title>
+        <type>d:datetime</type>
+      </property>
+      <property name="rlsm:systemMessageEndTime">
+        <title>End Time</title>
+        <type>d:datetime</type>
+      </property>
+      <property name="rlsm:systemMessagePriority">
+        <title>Priority</title>
+        <type>d:text</type>
+        <default>Normal</default>
+        <constraints>
+          <constraint ref="dl:priority_value" />
+        </constraints>
+      </property>
+    </properties>
+  </type>
+ </types>
+ 
+</model>
