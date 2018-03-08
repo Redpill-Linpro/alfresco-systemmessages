@@ -1,34 +1,61 @@
-# Alfresco AIO Project - SDK 3
+Alfresco System Messages
+=============================================
 
-This is an All-In-One (AIO) project for Alfresco SDK 3.0. 
+This module is sponsored by Redpill Linpro AB - http://www.redpill-linpro.com.
 
-Run with `mvn clean install -DskipTests=true alfresco:run` or `./run.sh` and verify that it 
+Description
+-----------
+This project contains some tools for displaying system wide messages to users. Example usage when system is going down for maintenance
 
- * Runs the embedded Tomcat + H2 DB 
- * Runs Alfresco Platform (Repository)
- * Runs Alfresco Solr4
- * Runs Alfresco Share
- * Packages both as JAR and AMP assembly for modules
- 
-# Few things to notice
 
- * No parent pom
- * No WAR projects, all handled by the Alfresco Maven Plugin 
- * No runner project - it's all in the Alfresco Maven Plugin
- * Standard JAR packaging and layout
- * Works seamlessly with Eclipse and IntelliJ IDEA
- * JRebel for hot reloading, JRebel maven plugin for generating rebel.xml, agent usage: `MAVEN_OPTS=-Xms256m -Xmx1G -agentpath:/home/martin/apps/jrebel/lib/libjrebel64.so`
- * AMP as an assembly
- * [Configurable Run mojo](https://github.com/Alfresco/alfresco-sdk/blob/sdk-3.0/plugins/alfresco-maven-plugin/src/main/java/org/alfresco/maven/plugin/RunMojo.java) in the `alfresco-maven-plugin`
- * No unit testing/functional tests just yet
- * Resources loaded from META-INF
- * Web Fragment (this includes a sample servlet configured via web fragment)
- 
-# TODO
- 
-  * Abstract assembly into a dependency so we don't have to ship the assembly in the archetype
-  * Purge
-  * Functional/remote unit tests
-   
-  
- 
+![Add a message](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/admin-console-sm.png)
+
+Depending on priority different colours will be used for the message.
+
+![How its presented](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/all-pages-sm.png)
+
+Structure
+------------
+
+The project consists of a repository module and a share module packaged as jar files.
+
+Building & Installation
+------------
+The build produces several jar files. Attach them to your own maven project using dependencies or put them under tomcat/shared/lib. Amp files are also produced if you prefer this installation type.
+
+SDK 1 and SDK 2
+
+For inclusion in an pre Alfresco 5.1 (pre SDK3) project use the pre 2.0-versions of the jar-files, navigate to our support-branch for this and follow instructions in the README.md file: https://github.com/Redpill-Linpro/alfresco-systemmessages/tree/support/pre-5.x-support
+
+SDK 3
+
+Platform/Repository module (parent pom):
+```xml
+<moduleDependency>
+	<groupId>com.redpill-linpro.alfresco</groupId>
+	<artifactId>alfresco-systemmessages-platform</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
+</moduleDependency>
+```
+
+Share module (parent pom): 
+```xml
+<moduleDependency>
+	<groupId>com.redpill-linpro.alfresco</groupId>
+	<artifactId>alfresco-systemmessages-share</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
+</moduleDependency>
+```
+The artifacts are deployed to the Maven Central Repository and can be downloaded from there as well.
+
+
+License
+-------
+
+This application is licensed under the LGPLv3 License. See the [LICENSE file](LICENSE) for details.
+
+Authors
+-------
+
+Erik Billerby - Redpill Linpro AB
+Magnus Pedersen - Redpill Linpro AB
