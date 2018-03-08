@@ -1,0 +1,18 @@
+<extension>
+  <modules>
+    <module>
+      <id>System Messages - Show System messages</id>
+      <auto-deploy>true</auto-deploy>
+      <version>${project.version}</version>
+      <!-- Apply the following customizations when the base evaluator above passes -->
+      <customizations>
+        <customization>
+          <targetPackageRoot>org.alfresco</targetPackageRoot>
+          <sourcePackageRoot>com.redpill-linpro.global.alfresco</sourcePackageRoot>
+        </customization>
+      </customizations>
+      <configurations>
+      </configurations>
+    </module>
+  </modules>
+</extension>
