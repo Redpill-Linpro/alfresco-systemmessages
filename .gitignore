@@ -6,6 +6,7 @@
 .classpath
 target
 alf_data_dev
+bin
 
 # Ignoring backup files that mergetool meld creates
 *.LOCAL.*
