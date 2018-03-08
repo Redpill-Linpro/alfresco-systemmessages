@@ -8,7 +8,7 @@
   <bean id="rl.systemMessagesDictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
     <property name="models">
       <list>
-        <value>alfresco/module/alfresco-systemmessages-platform-jar/model/systemmessages-model.xml</value>
+        <value>alfresco/module/alfresco-systemmessages-platform/model/systemmessages-model.xml</value>
       </list>
     </property>
   </bean>
@@ -63,8 +63,8 @@
       <props>
         <prop key="encoding">UTF-8</prop>
         <prop key="path">/${spaces.company_home.childname}/${spaces.dictionary.childname}</prop>
-        <prop key="location">alfresco/module/alfresco-systemmessages-platform-jar/bootstrap/system-messages-list.xml</prop>
-        <prop key="messages">alfresco/module/alfresco-systemmessages-platform-jar/messages/sm-patch-service</prop>
+        <prop key="location">alfresco/module/alfresco-systemmessages-platform/bootstrap/system-messages-list.xml</prop>
+        <prop key="messages">alfresco/module/alfresco-systemmessages-platform/messages/sm-patch-service</prop>
       </props>
     </property>
   </bean>

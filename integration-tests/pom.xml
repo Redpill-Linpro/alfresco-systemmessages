@@ -22,7 +22,7 @@
              that is generated for the AIO project -->
         <dependency>
             <groupId>com.redpill-linpro.alfresco</groupId>
-            <artifactId>alfresco-systemmessages-platform-jar</artifactId>
+            <artifactId>alfresco-systemmessages-platform</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
