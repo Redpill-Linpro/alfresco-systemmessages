@@ -10,7 +10,7 @@
 
  <properties>
   <!-- Alfresco Maven Plugin version to use -->
-  <alfresco.sdk.version>3.0.1</alfresco.sdk.version>
+  <alfresco.sdk.version>3.0.2-SNAPSHOT</alfresco.sdk.version>
 
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -148,7 +148,8 @@
 
  <dependencyManagement>
   <dependencies>
-   <!-- This will import the dependencyManagement for all artifacts in the selected Alfresco platform. NOTE: You still need to define dependencies in your POM, but you can omit version as it's enforced by this dependencyManagement. NOTE: It defaults to the latest version this SDK pom has been tested with, but alfresco version can/should be overridden in your project's pom -->
+   <!-- This will import the dependencyManagement for all artifacts in the selected Alfresco platform. NOTE: You still need to define dependencies in your POM, but you can omit version as it's enforced by this dependencyManagement. NOTE: It defaults to the latest version this SDK pom has been tested 
+    with, but alfresco version can/should be overridden in your project's pom -->
    <dependency>
     <groupId>${alfresco.groupId}</groupId>
     <artifactId>alfresco-platform-distribution</artifactId>
@@ -198,8 +199,10 @@
  <build>
   <pluginManagement>
    <plugins>
-    <!-- Build an AMP if 3rd party libs are needed by the extensions JARs are the default artifact produced in your modules, if you want to build an amp for each module you have to enable this plugin and inspect the src/main/assembly.xml file if you want to customize the layout of your AMP. The end result is that Maven will produce both a JAR file and an AMP with your module. -->
-    <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> <version>2.6</version> <executions> <execution> <id>build-amp-file</id> <phase>package</phase> <goals> <goal>single</goal> </goals> <configuration> <appendAssemblyId>false</appendAssemblyId> <descriptor>src/main/assembly/amp.xml</descriptor> </configuration> </execution> </executions> <dependencies> <dependency> <groupId>org.alfresco.maven.plugin</groupId> <artifactId>alfresco-maven-plugin</artifactId> <version>${alfresco.sdk.version}</version> </dependency> </dependencies> </plugin> -->
+    <!-- Build an AMP if 3rd party libs are needed by the extensions JARs are the default artifact produced in your modules, if you want to build an amp for each module you have to enable this plugin and inspect the src/main/assembly.xml file if you want to customize the layout of your AMP. The end result 
+     is that Maven will produce both a JAR file and an AMP with your module. -->
+    <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-assembly-plugin</artifactId> <version>2.6</version> <executions> <execution> <id>build-amp-file</id> <phase>package</phase> <goals> <goal>single</goal> </goals> <configuration> <appendAssemblyId>false</appendAssemblyId> <descriptor>src/main/assembly/amp.xml</descriptor> 
+     </configuration> </execution> </executions> <dependencies> <dependency> <groupId>org.alfresco.maven.plugin</groupId> <artifactId>alfresco-maven-plugin</artifactId> <version>${alfresco.sdk.version}</version> </dependency> </dependencies> </plugin> -->
 
     <!-- Filter resources in any sub-project with this config -->
     <plugin>
@@ -234,6 +237,19 @@
        <nonFilteredFileExtension>psd</nonFilteredFileExtension>
        <nonFilteredFileExtension>js</nonFilteredFileExtension>
       </nonFilteredFileExtensions>
+     </configuration>
+    </plugin>
+
+
+    <plugin>
+     <groupId>org.sonatype.plugins</groupId>
+     <artifactId>nexus-staging-maven-plugin</artifactId>
+     <version>1.6.7</version>
+     <extensions>true</extensions>
+     <configuration>
+      <serverId>ossrh</serverId>
+      <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+      <autoReleaseAfterClose>true</autoReleaseAfterClose>
      </configuration>
     </plugin>
    </plugins>
@@ -429,4 +445,33 @@
   <module>alfresco-systemmessages-share-jar</module>
   <module>integration-tests</module>
  </modules>
+
+ <profiles>
+  <profile>
+   <id>sign</id>
+   <build>
+    <plugins>
+     <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.6</version>
+      <configuration>
+       <useAgent>false</useAgent>
+       <keyname>${gpg.keyname}</keyname>
+       <passphraseServerId>${gpg.keyname}</passphraseServerId>
+      </configuration>
+      <executions>
+       <execution>
+        <id>sign-artifacts</id>
+        <phase>verify</phase>
+        <goals>
+         <goal>sign</goal>
+        </goals>
+       </execution>
+      </executions>
+     </plugin>
+    </plugins>
+   </build>
+  </profile>
+ </profiles>
 </project>
