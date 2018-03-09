@@ -3,10 +3,12 @@
  <modelVersion>4.0.0</modelVersion>
  <groupId>com.redpill-linpro.alfresco</groupId>
  <artifactId>alfresco-systemmessages</artifactId>
- <version>2.0.0</version>
+ <version>2.0.1</version>
  <name>Alfresco System Messages</name>
  <description>Display system wide messages to the users</description>
  <packaging>pom</packaging>
+
+ <url>https://github.com/Redpill-Linpro/alfresco-systemmessages</url>
 
  <properties>
   <!-- Alfresco Maven Plugin version to use -->
@@ -46,6 +48,8 @@
   <!-- Compile with Java 7, default is 5 -->
   <maven.compiler.source>1.8</maven.compiler.source>
   <maven.compiler.target>1.8</maven.compiler.target>
+  <maven.source.version>3.0.1</maven.source.version>
+  <maven.javadoc.version>2.10.4</maven.javadoc.version>
  </properties>
 
  <developers>
@@ -198,6 +202,7 @@
  <build>
   <pluginManagement>
    <plugins>
+
     <!-- Build an AMP if 3rd party libs are needed by the extensions JARs are the default artifact produced in your modules, if you want to build an amp for each module you have to enable this plugin and inspect the src/main/assembly.xml file if you want to customize the layout of your AMP. The end result is that Maven will produce both a JAR file and an AMP with your module. -->
     <plugin>
      <groupId>org.apache.maven.plugins</groupId>
@@ -224,7 +229,7 @@
       </dependency>
      </dependencies>
     </plugin>
-
+    
     <!-- Filter resources in any sub-project with this config -->
     <plugin>
      <groupId>org.apache.maven.plugins</groupId>
@@ -312,6 +317,8 @@
      </execution>
     </executions>
    </plugin>
+
+
 
    <!-- The Alfresco Maven Plugin contains all the logic to run the extension in an embedded Tomcat with the H2 database. -->
    <plugin>
@@ -454,7 +461,7 @@
  <distributionManagement>
   <repository>
    <id>ossrh</id>
-   <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+   <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
   </repository>
   <snapshotRepository>
    <id>ossrh</id>
