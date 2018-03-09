@@ -34,7 +34,7 @@ Platform/Repository module (parent pom):
 <moduleDependency>
 	<groupId>com.redpill-linpro.alfresco</groupId>
 	<artifactId>alfresco-systemmessages-platform</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>2.0.0</version>
 </moduleDependency>
 ```
 
@@ -43,7 +43,7 @@ Share module (parent pom):
 <moduleDependency>
 	<groupId>com.redpill-linpro.alfresco</groupId>
 	<artifactId>alfresco-systemmessages-share</artifactId>
-	<version>2.0.0-SNAPSHOT</version>
+	<version>2.0.0</version>
 </moduleDependency>
 ```
 The artifacts are deployed to the Maven Central Repository and can be downloaded from there as well.
