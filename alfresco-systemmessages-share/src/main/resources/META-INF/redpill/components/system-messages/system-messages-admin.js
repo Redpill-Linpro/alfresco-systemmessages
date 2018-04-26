@@ -66,6 +66,15 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
            elCell.innerHTML = this.msg("label.none");
         }
     },
+    typeFormatter: function (elCell, oRecord, oColumn, oData) {
+      var html = '';
+
+      if (oData) {
+        html = this.msg("systemmessages.priority." + oData.toLowerCase());
+      }
+
+      elCell.innerHTML = html;
+    },
     
     setupDataTable: function () {
         Alfresco.logger.debug("setupDataTable", arguments);
@@ -73,12 +82,12 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
             {
                 key: "title",
                 label: this.msg("title.title"),
-                sortable: false,
+                sortable: false
             },
             {
                 key: "text",
                 label: this.msg("title.text"),
-                sortable: false,
+                sortable: false
             },
             {
                 key: "startTime",
@@ -96,6 +105,7 @@ YAHOO.extend(Redpill.SystemMessages, Alfresco.component.Base, {
                 key: "type",
                 label: this.msg("title.type"),
                 sortable: false,
+                formatter: this.typeFormatter.bind(this)
             },
             {
                 key: "actions",
