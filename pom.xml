@@ -3,7 +3,7 @@
  <modelVersion>4.0.0</modelVersion>
  <groupId>com.redpill-linpro.alfresco</groupId>
  <artifactId>alfresco-systemmessages</artifactId>
- <version>2.1.0</version>
+ <version>2.1.1-SNAPSHOT</version>
  <name>Alfresco System Messages</name>
  <description>Display system wide messages to the users</description>
  <packaging>pom</packaging>
