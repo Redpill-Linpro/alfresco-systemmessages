@@ -11,6 +11,11 @@
         <value>alfresco/module/alfresco-systemmessages-platform/model/systemmessages-model.xml</value>
       </list>
     </property>
+    <property name="labels">
+      <list>
+        <value>alfresco/module/alfresco-systemmessages-platform/messages/systemmessages-model</value>
+      </list>
+    </property>
   </bean>
 
   <!-- Service bean  -->

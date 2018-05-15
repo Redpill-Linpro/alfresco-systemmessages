@@ -13,10 +13,10 @@
 <@markup id="html">
 <@uniqueIdDiv>
 <#assign el=args.htmlid?html>
-    <div class="title">System Messages</div>
+    <div class="title">${msg('systemmessages.admin-console.title')}</div>
 
     <div class="dashlet messages-list">
-        <div class="title">System Messages</div>
+        <div class="title">${msg('systemmessages.admin-console.title')}</div>
         <div id="${el}-messages-list-info" class="tags-list-info"></div>
         <div id="${el}-messages-list-bar-bottom" class="toolbar theme-bg-color-3 hidden">
             <div id="${el}-paginator" class="paginator hidden">&nbsp;</div>
