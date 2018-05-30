@@ -61,7 +61,8 @@ SystemNotifications.prototype.setRemovalCookie = function(id,msg) {
        expiryDate = new Date(msg.endTime);
     }
     Cookie.set("deletednotifications" + id, "read", {
-        expires:  expiryDate
+        expires:  expiryDate,
+        path: "/"
     });
 };
 
