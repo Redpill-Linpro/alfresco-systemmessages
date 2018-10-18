@@ -16,7 +16,7 @@ var Bubbling = YAHOO.Bubbling;
 var SystemNotifications = function() {
     //Do an ajax request to check for messagexs
     Alfresco.util.Ajax.jsonGet({
-        url: '/share/proxy/alfresco/api/redpill/notifications?active=true',
+        url: Alfresco.constants.PROXY_URI_RELATIVE + 'api/redpill/notifications?active=true',
         successCallback: { 
             fn:  (function (res) {
                     if (res.json && res.json.notifications) {
