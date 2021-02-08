@@ -75,7 +75,7 @@ Bubbling.on("notifications.notify",function(layer,payload){
     if (!notifications_div) {
         notifications_div = document.createElement('div');
         notifications_div.id = "notifications";
-        var shareServiceWarningNode = Dom.get("HEADER_SHARE_SERVICES_WARNING");
+        var shareServiceWarningNode = Dom.get("HEADER_LICENSE_WARNING");
         if (shareServiceWarningNode != null){
         	Dom.insertAfter(notifications_div, shareServiceWarningNode);
         }else {
@@ -136,7 +136,7 @@ function init() {
 
 var currentUser = Alfresco.constants.USERNAME.toLowerCase();
 if (currentUser !== "guest"){
-	YAHOO.util.Event.onContentReady('HEADER_SHARE_SERVICES_WARNING', init, this);
+	YAHOO.util.Event.onContentReady('HEADER_LICENSE_WARNING', init, this);
 }
 
 
