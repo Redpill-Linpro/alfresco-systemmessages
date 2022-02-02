@@ -1,61 +1,46 @@
-Alfresco System Messages
-=============================================
+# Alfresco AIO Project - SDK 4.3
 
-This module is sponsored by Redpill Linpro AB - http://www.redpill-linpro.com.
+This is an All-In-One (AIO) project for Alfresco SDK 4.3.
 
-Description
------------
-This project contains some tools for displaying system wide messages to users. Example usage when system is going down for maintenance
+Run with `./run.sh build_start` or `./run.bat build_start` and verify that it
 
+ * Runs Alfresco Content Service (ACS)
+ * Runs Alfresco Share
+ * Runs Alfresco Search Service (ASS)
+ * Runs PostgreSQL database
+ * Deploys the JAR assembled modules
+ 
+All the services of the project are now run as docker containers. The run script offers the next tasks:
 
-![Add a message](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/admin-console-sm.png)
+ * `build_start`. Build the whole project, recreate the ACS and Share docker images, start the dockerised environment composed by ACS, Share, ASS and 
+ PostgreSQL and tail the logs of all the containers.
+ * `build_start_it_supported`. Build the whole project including dependencies required for IT execution, recreate the ACS and Share docker images, start the 
+ dockerised environment composed by ACS, Share, ASS and PostgreSQL and tail the logs of all the containers.
+ * `start`. Start the dockerised environment without building the project and tail the logs of all the containers.
+ * `stop`. Stop the dockerised environment.
+ * `purge`. Stop the dockerised container and delete all the persistent data (docker volumes).
+ * `tail`. Tail the logs of all the containers.
+ * `reload_share`. Build the Share module, recreate the Share docker image and restart the Share container.
+ * `reload_acs`. Build the ACS module, recreate the ACS docker image and restart the ACS container.
+ * `build_test`. Build the whole project, recreate the ACS and Share docker images, start the dockerised environment, execute the integration tests from the
+ `integration-tests` module and stop the environment.
+ * `test`. Execute the integration tests (the environment must be already started).
 
-Depending on priority different colours will be used for the message.
+# Few things to notice
 
-![How its presented](https://github.com/Redpill-Linpro/alfresco-systemmessages/blob/master/all-pages-sm.png)
+ * No parent pom
+ * No WAR projects, the jars are included in the custom docker images
+ * No runner project - the Alfresco environment is now managed through [Docker](https://www.docker.com/)
+ * Standard JAR packaging and layout
+ * Works seamlessly with Eclipse and IntelliJ IDEA
+ * JRebel for hot reloading, JRebel maven plugin for generating rebel.xml [JRebel integration documentation]
+ * AMP as an assembly
+ * Persistent test data through restart thanks to the use of Docker volumes for ACS, ASS and database data
+ * Integration tests module to execute tests against the final environment (dockerised)
+ * Resources loaded from META-INF
+ * Web Fragment (this includes a sample servlet configured via web fragment)
 
-Structure
-------------
+# TODO
 
-The project consists of a repository module and a share module packaged as jar files.
-
-Building & Installation
-------------
-The build produces several jar files. Attach them to your own maven project using dependencies or put them under tomcat/shared/lib. Amp files are also produced if you prefer this installation type.
-
-SDK 1 and SDK 2
-
-For inclusion in an pre Alfresco 5.1 (pre SDK3) project use the pre 2.0-versions of the jar-files, navigate to our support-branch for this and follow instructions in the README.md file: https://github.com/Redpill-Linpro/alfresco-systemmessages/tree/support/pre-5.x-support
-
-SDK 3
-
-Platform/Repository module (parent pom):
-```xml
-<moduleDependency>
-	<groupId>com.redpill-linpro.alfresco</groupId>
-	<artifactId>alfresco-systemmessages-platform</artifactId>
-	<version>2.0.1</version>
-</moduleDependency>
-```
-
-Share module (parent pom): 
-```xml
-<moduleDependency>
-	<groupId>com.redpill-linpro.alfresco</groupId>
-	<artifactId>alfresco-systemmessages-share</artifactId>
-	<version>2.0.1</version>
-</moduleDependency>
-```
-The artifacts are deployed to the Maven Central Repository and can be downloaded from there as well.
-
-
-License
--------
-
-This application is licensed under the LGPLv3 License. See the [LICENSE file](LICENSE) for details.
-
-Authors
--------
-
-Erik Billerby - Redpill Linpro AB
-Magnus Pedersen - Redpill Linpro AB
+  * Abstract assembly into a dependency so we don't have to ship the assembly in the archetype
+  * Functional/remote unit tests
