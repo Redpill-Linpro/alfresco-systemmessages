@@ -9,8 +9,8 @@
       </list>
     </property>
   </bean>
-  
-    <bean id="systemmessages.custom.config" class="org.springframework.extensions.config.ConfigBootstrap" init-method="register">
+
+  <bean id="systemmessages.custom.config" class="org.springframework.extensions.config.ConfigBootstrap" init-method="register">
     <property name="configService" ref="web.config" />
     <property name="configs">
       <list>
@@ -19,7 +19,7 @@
       </list>
     </property>
   </bean>
-  
+
   <bean id="systemmessages.evaluator.doclib.action.isAdmin" class="com.redpill_linpro.alfresco.systemmessages.share.evaluator.IsAdmin" />
 
 </beans>
