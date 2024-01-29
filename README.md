@@ -21,6 +21,8 @@ The project consists of a repository module and a share module packaged as jar f
 
 Building & Installation
 ------------
+UPDATE IS NEEDED. THIS IS NOT CURRENT!
+
 The build produces several jar files. Attach them to your own maven project using dependencies or put them under tomcat/shared/lib. Amp files are also produced if you prefer this installation type.
 
 SDK 1 and SDK 2

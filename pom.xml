@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redpill-linpro.alfresco</groupId>
   <artifactId>alfresco-systemmessages</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>4.0</version>
   <name>AIO - SDK 4.7</name>
   <description>All-In-One (AIO) project for SDK 4.7</description>
   <packaging>pom</packaging>

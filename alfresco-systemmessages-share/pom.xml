@@ -10,7 +10,7 @@
     <parent>
         <groupId>com.redpill-linpro.alfresco</groupId>
         <artifactId>alfresco-systemmessages</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>4.0</version>
     </parent>
 
     <properties>

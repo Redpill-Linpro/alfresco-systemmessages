@@ -10,7 +10,7 @@
     <parent>
         <groupId>com.redpill-linpro.alfresco</groupId>
         <artifactId>alfresco-systemmessages</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>4.0</version>
     </parent>
 
     <properties>
@@ -20,12 +20,12 @@
         <dependency>
             <groupId>com.redpill-linpro.alfresco</groupId>
             <artifactId>alfresco-systemmessages-platform</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>4.0</version>
         </dependency>
         <dependency>
             <groupId>com.redpill-linpro.alfresco</groupId>
             <artifactId>alfresco-systemmessages-integration-tests</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>4.0</version>
             <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>
